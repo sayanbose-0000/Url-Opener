@@ -1,111 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="icon" href="favicon.svg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Visitor</title>
-    <style>
-        /* Global styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 100%;
-            width: 400px;
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            box-sizing: border-box;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            word-wrap: break-word;
-        }
-
-        input {
-            width: calc(100% - 24px);
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #333;
-            border-radius: 4px;
-            background: #2c2c2c;
-            color: #e0e0e0;
-        }
-
-        input:focus {
-            border-color: #6200ea;
-            outline: none;
-        }
-
-        button {
-            padding: 12px 24px;
-            background-color: #6200ea;
-            border: none;
-            color: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        button:hover {
-            background-color: #3700b3;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                width: calc(100% - 40px);
-                padding: 15px;
-            }
-
-            h1 {
-                font-size: 20px;
-            }
-
-            input {
-                width: calc(100% - 24px);
-            }
-
-            button {
-                padding: 15px;
-                font-size: 18px;
-            }
-        }
-    </style>
+    <title>Urlify</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Visit a URL</h1>
-        <form id="urlForm">
-            <input type="text" id="urlInput" placeholder="Enter URL here" autofocus>
-            <button type="submit">Visit</button>
+    <main>
+        <form class="form">
+            <h1 class="title">Visit a Page</h1>
+            <input type="text" name="search" id="search" class="search" autofocus>
+            <div class="check-container">
+                <input type="checkbox" name="checkbox" id="checkbox" class="checkbox" checked>
+                <label for="url">Url</label>
+            </div>
+            <button class="visit">Visit</button>
         </form>
-    </div>
-    <script>
-        document.getElementById('urlForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from reloading the page
-            const url = document.getElementById('urlInput').value;
-            if (url) {
-                const formattedUrl = url.startsWith('http://') || url.startsWith('https://') ? url : `http://${url}`;
-                window.location.href = formattedUrl;
-            } else {
-                alert('Please enter a URL.');
-            }
-        });
-    </script>
+    </main>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
