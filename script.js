@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const searchUrl = (search, checkbox, visit, form) => {
   console.log(search, checkbox, visit, form);
-  const trimmedValue = search.value.trim();
 
   checkbox.addEventListener("keypress", (ev) => {
     if (ev.key === "Enter") {
@@ -22,13 +21,19 @@ const searchUrl = (search, checkbox, visit, form) => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const trimmedUrl = search.value.trim();
+
+    if (trimmedUrl === "") {
+      return;
+    }
+
     if (checkbox.checked === true) {
-      const url = trimmedValue.startsWith("http://") ? `${trimmedValue}` : `https://${trimmedValue}`;
+      const url = trimmedUrl.startsWith("http://") ? `${trimmedUrl}` : `https://${trimmedUrl}`;
       window.location.href = url;
     }
 
     else {
-      const url = `https://www.google.com/search?q=${trimmedValue}`;
+      const url = `https://www.google.com/search?q=${trimmedUrl}`;
       window.location.href = url;
     }
   });
