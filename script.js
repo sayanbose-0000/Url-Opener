@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const searchUrl = (search, checkbox, visit, form) => {
   console.log(search, checkbox, visit, form);
-  search.value = search.value.trim();
+  const trimmedValue = search.value.trim();
 
   checkbox.addEventListener("keypress", (ev) => {
     if (ev.key === "Enter") {
@@ -23,12 +23,12 @@ const searchUrl = (search, checkbox, visit, form) => {
     e.preventDefault();
 
     if (checkbox.checked === true) {
-      const url = search.value.startsWith("http://") ? `${search.value}` : `https://${search.value}`;
+      const url = trimmedValue.startsWith("http://") ? `${trimmedValue}` : `https://${trimmedValue}`;
       window.location.href = url;
     }
 
     else {
-      const url = `https://www.google.com/search?q=${search.value}`;
+      const url = `https://www.google.com/search?q=${trimmedValue}`;
       window.location.href = url;
     }
   });
