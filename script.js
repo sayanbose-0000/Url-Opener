@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const searchUrl = (search, checkbox, visit, form) => {
   console.log(search, checkbox, visit, form);
+  search.value = search.value.trim();
 
   checkbox.addEventListener("keypress", (ev) => {
     if (ev.key === "Enter") {
